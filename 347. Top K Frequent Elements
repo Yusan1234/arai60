@@ -1,0 +1,15 @@
+python
+
+```
+class Solution:
+    def topKFrequent(self, nums: List[int], k: int) -> List[int]:
+        
+        minh = []
+        cnts = Counter(nums)
+        for num, cnt in cnts.items():
+            heapq.heappush(minh, [cnt, num])
+            if len(minh)>k: heapq.heappop(minh)
+        
+        return [elements[1] for elements in minh ]
+
+```
